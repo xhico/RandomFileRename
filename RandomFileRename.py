@@ -4,6 +4,7 @@ import os
 
 import random
 import string
+import sys
 
 
 def random_string():
@@ -39,9 +40,8 @@ if __name__ == "__main__":
     print("----------------------------------------------------")
     os.chdir(os.path.dirname(os.path.abspath(__file__)))
 
-    FOLDER = r""
-
     try:
+        FOLDER = sys.argv[1]
         main()
     except Exception as ex:
         print(ex)
