@@ -1,16 +1,16 @@
 # -*- coding: utf-8 -*-
 # !/usr/bin/python3
+
 import os
 
 import random
 import string
-import sys
 
 
 def random_string():
     rndInt = random.randrange(5, 10)
-    str1 = ''.join((random.choice(string.ascii_letters) for x in range(rndInt)))
-    str1 += ''.join((random.choice(string.digits) for x in range(rndInt)))
+    str1 = ''.join((random.choice(string.ascii_letters) for _ in range(rndInt)))
+    str1 += ''.join((random.choice(string.digits) for _ in range(rndInt)))
 
     # It converts the string to list.
     sam_list = list(str1)
@@ -24,6 +24,8 @@ def random_string():
 
 
 def main():
+    FOLDER = input("FOLDER: ")
+
     # Get list of all files only in the given directory
     onlyFiles = filter(lambda x: os.path.isfile(os.path.join(FOLDER, x)), os.listdir(FOLDER))
 
@@ -41,7 +43,6 @@ if __name__ == "__main__":
     os.chdir(os.path.dirname(os.path.abspath(__file__)))
 
     try:
-        FOLDER = sys.argv[1]
         main()
     except Exception as ex:
         print(ex)
